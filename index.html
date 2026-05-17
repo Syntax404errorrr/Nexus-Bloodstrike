@@ -36,7 +36,6 @@
             min-height: 100vh;
         }
 
-        /* Animated Background Particles */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -44,7 +43,6 @@
             z-index: -1;
         }
 
-        /* NAV MENU */
         nav {
             display: flex;
             justify-content: space-between;
@@ -71,7 +69,6 @@
             text-transform: uppercase;
         }
 
-        /* ROUND LOGO STYLES */
         .nav-logo img {
             width: 45px;
             height: 45px;
@@ -111,7 +108,103 @@
             text-shadow: 0 0 10px var(--primary-red);
         }
 
-        /* HERO SECTION */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--white);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 280px;
+            height: 100vh;
+            background: rgba(8, 8, 8, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            padding: 100px 30px 40px;
+            border-left: 1px solid var(--border-glow);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.2s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .mobile-menu ul li a i {
+            font-size: 1.6rem;
+            width: 35px;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--primary-red);
+            transform: translateX(8px);
+        }
+
+        .menu-overlay-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .menu-overlay-bg.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .hero {
             display: flex;
             flex-direction: column;
@@ -134,6 +227,8 @@
             gap: 10px;
             color: var(--primary-red);
             box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .hero h1 {
@@ -202,7 +297,7 @@
             background: rgba(255, 0, 60, 0.05);
         }
 
-        /* INFO SECTION (INITIAL hidden) becomes a modal-like page overlay? but preserve flow — we will open NEW "page" overlays, but we keep original as section? Better to create overlays modals */
+        /* MODAL STYLES (preserved) */
         .modal-page {
             position: fixed;
             top: 0;
@@ -236,6 +331,7 @@
             position: relative;
             text-align: center;
             box-shadow: 0 0 40px rgba(255, 0, 60, 0.2);
+            margin: 20px;
         }
 
         .modal-card h3 {
@@ -340,7 +436,6 @@
             font-size: 0.9rem;
         }
 
-        /* Footer */
         footer {
             padding: 60px 6% 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -376,23 +471,89 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links li a span {
+            .nav-links {
                 display: none;
             }
 
-            .nav-links li a i {
-                font-size: 1.3rem;
-                margin: 0 4px;
+            .hamburger {
+                display: flex;
             }
 
             .hero {
                 padding-top: 120px;
+                padding-left: 16px;
+                padding-right: 16px;
             }
 
             .footer-grid {
                 flex-direction: column;
                 text-align: center;
             }
+
+            .btn {
+                padding: 12px 28px;
+                font-size: 0.8rem;
+            }
+
+            .version-tag {
+                font-size: 0.7rem;
+                gap: 5px;
+            }
+
+            .modal-card {
+                padding: 30px 20px;
+                max-width: 95%;
+            }
+
+            .modal-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .variant-item h4 {
+                font-size: 1.2rem;
+            }
+
+            .social-icon i {
+                font-size: 2rem;
+                padding: 10px;
+            }
+
+            .variant-btn {
+                padding: 8px 18px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+
+            .hero h2 {
+                font-size: clamp(1rem, 5vw, 1.5rem);
+                letter-spacing: 3px;
+            }
+
+            .btn-container {
+                gap: 12px;
+            }
+
+            .nav-logo {
+                font-size: 1rem;
+            }
+
+            .nav-logo img {
+                width: 36px;
+                height: 36px;
+            }
+
+            .version-tag span {
+                font-size: 0.65rem;
+            }
+        }
+
+        img, .btn, .modal-card, .variant-item {
+            max-width: 100%;
         }
 
         #versionText {
@@ -411,13 +572,30 @@
             <img src="logo.png" alt="Nexus Logo" onerror="this.src='https://placehold.co/45x45?text=N'">
             Nexus Bloodstrike
         </a>
+
         <ul class="nav-links">
             <li><a href="#"><i class="fas fa-home"></i><span> Home</span></a></li>
             <li><a href="#" id="navDownloadBtn"><i class="fas fa-download"></i><span> Download</span></a></li>
             <li><a href="#" id="navInfoBtn"><i class="fas fa-info-circle"></i><span> Info</span></a></li>
             <li><a href="#" id="navContactBtn"><i class="fas fa-address-card"></i><span> Contact</span></a></li>
         </ul>
+
+        <div class="hamburger" id="hamburgerIcon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#" id="mobileHome"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#" id="mobileDownload"><i class="fas fa-download"></i> Download</a></li>
+            <li><a href="#" id="mobileInfo"><i class="fas fa-info-circle"></i> Info</a></li>
+            <li><a href="#" id="mobileContact"><i class="fas fa-address-card"></i> Contact</a></li>
+        </ul>
+    </div>
+    <div class="menu-overlay-bg" id="menuOverlayBg"></div>
 
     <main class="hero">
         <div class="version-tag" id="versionTag">
@@ -505,7 +683,7 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-
+        // Particles Config (preserved)
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -524,15 +702,10 @@
             "retina_detect": true
         });
 
-        const VERSION_API_URL = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/version.txt';
-
-
         async function fetchLatestVersion() {
             const versionElement = document.getElementById('versionText');
             const repoVersionUrl = 'https://raw.githubusercontent.com/nexusbloodstrike/version/main/current.txt';
-
             try {
-
                 let response = await fetch(repoVersionUrl, { cache: 'no-store' });
                 if (response.ok) {
                     let txt = await response.text();
@@ -548,11 +721,9 @@
                 }
             } catch (err) {
                 console.warn("Using fallback version due to fetch error:", err);
-
                 versionElement.innerText = "FILE VERSION: 1.5.1 [LATEST]";
             }
         }
-
         fetchLatestVersion();
 
 
@@ -582,14 +753,22 @@
         function handleDownloadClick(e) {
             e.preventDefault();
             openModal(downloadModal);
+            closeMobileMenu(); 
         }
         function handleInfoClick(e) {
             e.preventDefault();
             openModal(infoModal);
+            closeMobileMenu();
         }
         function handleContactClick(e) {
             e.preventDefault();
             openModal(contactModal);
+            closeMobileMenu();
+        }
+        function handleHomeClick(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeMobileMenu();
         }
 
         downloadMainBtn.addEventListener('click', handleDownloadClick);
@@ -598,12 +777,45 @@
         navInfoBtn.addEventListener('click', handleInfoClick);
         navContactBtn.addEventListener('click', handleContactClick);
 
+        const hamburger = document.getElementById('hamburgerIcon');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlayBg = document.getElementById('menuOverlayBg');
+        const mobileHome = document.getElementById('mobileHome');
+        const mobileDownload = document.getElementById('mobileDownload');
+        const mobileInfo = document.getElementById('mobileInfo');
+        const mobileContact = document.getElementById('mobileContact');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+            overlayBg.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            overlayBg.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', toggleMobileMenu);
+        overlayBg.addEventListener('click', closeMobileMenu);
+
+        mobileHome.addEventListener('click', handleHomeClick);
+        mobileDownload.addEventListener('click', handleDownloadClick);
+        mobileInfo.addEventListener('click', handleInfoClick);
+        mobileContact.addEventListener('click', handleContactClick);
+
         function getCurrentVersionNumber() {
             let versionSpan = document.getElementById('versionText');
             let txt = versionSpan.innerText;
             let match = txt.match(/VERSION:\s*([0-9.]+)/i);
             if (match) return match[1];
-            // fallback
             let parts = txt.split(' ');
             for (let part of parts) {
                 if (part.match(/^[0-9]+\.[0-9]+\.[0-9]+/)) return part;
@@ -634,29 +846,23 @@
             }
         }
 
-
         attachVariantDownloadHandlers();
-
         const observer = new MutationObserver(() => attachVariantDownloadHandlers());
         observer.observe(downloadModal, { childList: true, subtree: true });
-        attachVariantDownloadHandlers();
-
-
+        
+  
         window.showDownload = function () { openModal(downloadModal); };
-
         window.onclick = function (e) {
             if (e.target.classList && e.target.classList.contains('modal-page')) {
                 closeAllModals();
             }
-        };
 
+        };
         setInterval(() => {
             fetchLatestVersion();
         }, 60000);
-
-        console.log("Nexus Bloodstrike interface fully armed — version fetching, variant downloader, social info panels ready");
-
-
+        
+        console.log("Nexus Bloodstrike with hamburger fully responsive — version fetcher & variant downloader ready");
     </script>
 </body>
 
