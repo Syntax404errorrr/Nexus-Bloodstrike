@@ -886,18 +886,16 @@
                 normalBtn.onclick = (e) => {
                     e.preventDefault();
                     const version = getCurrentVersionNumber();
-                    const normalDownloadUrl = `https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/blob/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_${version}.apk`;
-                    window.open(normalDownloadUrl, '_blank');
-                    alert(`Initializing download: Nexus Bloodstrike Normal (v${version})\nIf download doesn't start, visit our GitHub releases.`);
+                    const normalDownloadUrl = `https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_${version}.apk`;
+                    window.location.href = normalDownloadUrl;
                 };
             }
             if (gyroBtn) {
                 gyroBtn.onclick = (e) => {
                     e.preventDefault();
                     const version = getCurrentVersionNumber();
-                    const gyroDownloadUrl = `https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/blob/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_${version}.apk`;
-                    window.open(gyroDownloadUrl, '_blank');
-                    alert(`Initializing download: Nexus Bloodstrike Gyro Aimbot (v${version})\nEnsure motion sensors enabled for best experience.`);
+                    const gyroDownloadUrl = `https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_${version}.apk`;
+                    window.location.href = gyroDownloadUrl;
                 };
             }
         }
