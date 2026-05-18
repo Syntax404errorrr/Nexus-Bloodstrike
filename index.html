@@ -242,22 +242,12 @@
             text-align: center;
         }
 
+        /* Version tag hidden completely as requested */
         .version-tag {
-            background: rgba(255, 0, 60, 0.1);
-            border: 1px solid var(--primary-red);
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-red);
-            box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
-            backdrop-filter: blur(2px);
+            display: none;
         }
 
+        /* Hero title and subtitle styles restored */
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(2.5rem, 8vw, 5rem);
@@ -266,6 +256,7 @@
             text-transform: uppercase;
             letter-spacing: -2px;
             line-height: 1;
+            display: block;
         }
 
         .hero h2 {
@@ -276,6 +267,7 @@
             text-transform: uppercase;
             letter-spacing: 5px;
             font-weight: 700;
+            display: block;
         }
 
         .btn-container {
@@ -471,37 +463,18 @@
         }
 
         footer {
-            padding: 40px 6% 25px;
+            padding: 16px 6%;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             background: #020202;
             margin-top: auto;
+            text-align: center;
         }
 
-        .footer-grid {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-logo h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-        }
-
-        .footer-logo p {
-            color: var(--primary-red);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-        }
-
-        .credits {
-            color: #555;
-            font-size: 0.8rem;
+        .footer-credits {
+            color: #888;
+            font-size: 0.75rem;
             letter-spacing: 1px;
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
@@ -520,20 +493,10 @@
                 justify-content: center;
             }
 
-            .footer-grid {
-                flex-direction: column;
-                text-align: center;
-            }
-
             .btn {
                 padding: 12px 28px;
                 font-size: 0.8rem;
                 min-width: 170px;
-            }
-
-            .version-tag {
-                font-size: 0.7rem;
-                gap: 5px;
             }
 
             .modal-card {
@@ -590,10 +553,6 @@
                 padding: 10px 20px;
             }
 
-            .version-tag span {
-                font-size: 0.65rem;
-            }
-
             .mobile-menu ul li a {
                 font-size: 1rem;
                 padding: 10px 14px;
@@ -608,11 +567,6 @@
 
         img, .btn, .modal-card, .variant-item {
             max-width: 100%;
-        }
-
-        #versionText {
-            font-weight: bold;
-            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -649,9 +603,9 @@
     <div class="menu-overlay-bg" id="menuOverlayBg"></div>
 
     <main class="hero">
-        <div class="version-tag" id="versionTag">
-            <span id="versionText">FETCHING VERSION...</span>
-        </div>
+        <!-- Version tag removed as requested -->
+        <div class="version-tag" id="versionTag"></div>
+        <!-- Nexus Bloodstrike and Bloodstrike Mod Menu titles restored as requested -->
         <h1>Nexus Bloodstrike</h1>
         <h2>Bloodstrike Mod Menu</h2>
         <div class="btn-container">
@@ -719,14 +673,8 @@
     </div>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-logo">
-                <h3>Nexus Bloodstrike</h3>
-                <p>Bloodstrike Mod Menu</p>
-            </div>
-            <div class="credits">
-                &copy; 2026 NEXUS BLOODSTRIKE | SYSTEM SECURED
-            </div>
+        <div class="footer-credits">
+            © 2026 NEXUS BLOODSTRIKE | SYSTEM SECURED
         </div>
     </footer>
 
@@ -750,26 +698,29 @@
             "retina_detect": true
         });
 
+        // Version fetch function preserved but the element is hidden via CSS
         async function fetchLatestVersion() {
             const versionElement = document.getElementById('versionText');
-            const repoVersionUrl = 'https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/refs/heads/main/version/current.txt';
-            try {
-                let response = await fetch(repoVersionUrl, { cache: 'no-store' });
-                if (response.ok) {
-                    let txt = await response.text();
-                    txt = txt.trim();
-                    if (txt.length > 0 && txt.length < 30) {
-                        versionElement.innerText = `FILE VERSION: ${txt} [LATEST]`;
-                        return;
+            if (versionElement) {
+                const repoVersionUrl = 'https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/refs/heads/main/version/current.txt';
+                try {
+                    let response = await fetch(repoVersionUrl, { cache: 'no-store' });
+                    if (response.ok) {
+                        let txt = await response.text();
+                        txt = txt.trim();
+                        if (txt.length > 0 && txt.length < 30) {
+                            versionElement.innerText = `FILE VERSION: ${txt} [LATEST]`;
+                            return;
+                        } else {
+                            throw new Error("Invalid version format");
+                        }
                     } else {
-                        throw new Error("Invalid version format");
+                        throw new Error("Fetch failed");
                     }
-                } else {
-                    throw new Error("Fetch failed");
+                } catch (err) {
+                    console.warn("Using fallback version due to fetch error:", err);
+                    versionElement.innerText = "FILE VERSION: 1.5.1 [LATEST]";
                 }
-            } catch (err) {
-                console.warn("Using fallback version due to fetch error:", err);
-                versionElement.innerText = "FILE VERSION: 1.5.1 [LATEST]";
             }
         }
         fetchLatestVersion();
@@ -869,12 +820,14 @@
 
         function getCurrentVersionNumber() {
             let versionSpan = document.getElementById('versionText');
-            let txt = versionSpan.innerText;
-            let match = txt.match(/VERSION:\s*([0-9.]+)/i);
-            if (match) return match[1];
-            let parts = txt.split(' ');
-            for (let part of parts) {
-                if (part.match(/^[0-9]+\.[0-9]+\.[0-9]+/)) return part;
+            if (versionSpan) {
+                let txt = versionSpan.innerText;
+                let match = txt.match(/VERSION:\s*([0-9.]+)/i);
+                if (match) return match[1];
+                let parts = txt.split(' ');
+                for (let part of parts) {
+                    if (part.match(/^[0-9]+\.[0-9]+\.[0-9]+/)) return part;
+                }
             }
             return "1.5.1";
         }
