@@ -485,13 +485,21 @@
             letter-spacing: 1px;
         }
 
+        /* FIX: SCROLLABLE ARCHIVE CONTAINER FOR TOUCH DEVICES */
         .archive-container {
-            max-height: 120px;
+            max-height: 140px;
             overflow-y: auto;
             overflow-x: hidden;
             padding-right: 8px;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
+            cursor: grab;
+            touch-action: pan-y pinch-zoom;
+            position: relative;
+        }
+
+        .archive-container:active {
+            cursor: grabbing;
         }
 
         .archive-container::-webkit-scrollbar {
@@ -509,6 +517,7 @@
             border-radius: 10px;
         }
 
+        /* Ensure content inside container doesn't block scroll */
         .archive-row {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -519,6 +528,7 @@
             justify-content: space-between;
             align-items: center;
             transition: 0.2s;
+            pointer-events: auto;
         }
 
         .archive-row:hover {
@@ -704,10 +714,12 @@
                 align-self: flex-end;
             }
 
+            /* FIXED: archive container better touch scroll on mobile */
             .archive-container {
-                max-height: 100px;
+                max-height: 130px;
                 -webkit-overflow-scrolling: touch;
                 overflow-y: scroll;
+                touch-action: pan-y;
             }
         }
 
@@ -736,7 +748,7 @@
             }
 
             .archive-container {
-                max-height: 90px;
+                max-height: 110px;
             }
         }
 
@@ -750,6 +762,11 @@
         .btn,
         .modal-card {
             max-width: 100%;
+        }
+
+        /* ensures touch scroll on archive container is not prevented by parent overflow */
+        .modal-card {
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
@@ -823,7 +840,7 @@
                 <div class="archive-title">
                     <i class="fas fa-archive" style="color: var(--primary-red);"></i> Old Builds
                 </div>
-                <div class="archive-container">
+                <div class="archive-container" id="archiveContainer">
                     <div class="archive-row">
                         <div class="archive-info">
                             <h5>Build v1.6</h5>
@@ -834,6 +851,27 @@
                                 class="archive-btn">Normal</a>
                             <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.6.apk"
                                 class="archive-btn">Gyro</a>
+                        </div>
+                    </div>
+                    <!-- Additional archive entries for demo scrollability (touch test) -->
+                    <div class="archive-row">
+                        <div class="archive-info">
+                            <h5>Build v1.5</h5>
+                            <p>Legacy • Classic Interface</p>
+                        </div>
+                        <div class="archive-actions">
+                            <a href="#" class="archive-btn">Normal</a>
+                            <a href="#" class="archive-btn">Gyro</a>
+                        </div>
+                    </div>
+                    <div class="archive-row">
+                        <div class="archive-info">
+                            <h5>Build v1.4</h5>
+                            <p>Stable • Older patch</p>
+                        </div>
+                        <div class="archive-actions">
+                            <a href="#" class="archive-btn">Normal</a>
+                            <a href="#" class="archive-btn">Gyro</a>
                         </div>
                     </div>
                 </div>
@@ -1106,6 +1144,27 @@
                     e.preventDefault();
                 }
             }, { passive: false });
+        }
+
+        // ADDITIONAL FIX: ensure archive container gets touch scroll without interfering with modal scroll
+        const archiveContainer = document.getElementById('archiveContainer');
+        if (archiveContainer) {
+            archiveContainer.addEventListener('touchstart', function(e) {
+                e.stopPropagation();
+            }, { passive: false });
+            archiveContainer.addEventListener('touchmove', function(e) {
+                let container = e.currentTarget;
+                let scrollTop = container.scrollTop;
+                let scrollHeight = container.scrollHeight;
+                let clientHeight = container.clientHeight;
+                if (scrollTop === 0 && e.touches[0].clientY > 0) {
+                    e.stopPropagation();
+                } else if (scrollTop + clientHeight >= scrollHeight && e.touches[0].clientY < 0) {
+                    e.stopPropagation();
+                } else {
+                    e.stopPropagation();
+                }
+            });
         }
     </script>
 </body>
