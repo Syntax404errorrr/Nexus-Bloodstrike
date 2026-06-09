@@ -358,11 +358,15 @@
         }
 
         .modal-card::-webkit-scrollbar {
-            display: none;
+            width: 4px;
         }
-        .modal-card {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+        .modal-card::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        .modal-card::-webkit-scrollbar-thumb {
+            background: var(--primary-red);
+            border-radius: 10px;
         }
 
         .modal-card h3 {
@@ -479,25 +483,31 @@
             letter-spacing: 1px;
         }
 
-        /* SCROLLABLE ARCHIVE CONTAINER - MOBILE FRIENDLY, NO VISIBLE SCROLLBAR */
+        /* SCROLLABLE ARCHIVE CONTAINER - WORKS ON ALL DEVICES */
         .archive-container {
             max-height: 240px;
-            overflow-y: auto;
+            overflow-y: scroll;
             overflow-x: hidden;
-            padding-right: 5px;
+            padding-right: 8px;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            scrollbar-width: thin;
         }
         
+        /* Custom scrollbar styling - visible but thin */
         .archive-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Ensure touch scrolling works on all devices */
-        .archive-wrapper {
+            width: 5px;
             display: block;
-            width: 100%;
+        }
+        .archive-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+        }
+        .archive-container::-webkit-scrollbar-thumb {
+            background: var(--primary-red);
+            border-radius: 10px;
+        }
+        .archive-container::-webkit-scrollbar-thumb:hover {
+            background: #ff3366;
         }
 
         .archive-row {
@@ -696,9 +706,11 @@
                 align-self: flex-end;
             }
             
+            /* Mobile-specific scroll container */
             .archive-container {
                 max-height: 200px;
                 -webkit-overflow-scrolling: touch;
+                overflow-y: scroll;
             }
         }
 
