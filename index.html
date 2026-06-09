@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -26,7 +27,8 @@
             font-family: 'Rajdhani', sans-serif;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
         }
 
@@ -360,10 +362,12 @@
         .modal-card::-webkit-scrollbar {
             width: 4px;
         }
+
         .modal-card::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
         }
+
         .modal-card::-webkit-scrollbar-thumb {
             background: var(--primary-red);
             border-radius: 10px;
@@ -483,31 +487,29 @@
             letter-spacing: 1px;
         }
 
-        /* SCROLLABLE ARCHIVE CONTAINER - WORKS ON ALL DEVICES */
+        /* SCROLLABLE ARCHIVE CONTAINER */
         .archive-container {
-            max-height: 240px;
-            overflow-y: scroll;
+            max-height: 120px;
+            overflow-y: auto;
             overflow-x: hidden;
             padding-right: 8px;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
         }
-        
-        /* Custom scrollbar styling - visible but thin */
+
         .archive-container::-webkit-scrollbar {
             width: 5px;
             display: block;
         }
+
         .archive-container::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.08);
             border-radius: 10px;
         }
+
         .archive-container::-webkit-scrollbar-thumb {
             background: var(--primary-red);
             border-radius: 10px;
-        }
-        .archive-container::-webkit-scrollbar-thumb:hover {
-            background: #ff3366;
         }
 
         .archive-row {
@@ -705,10 +707,9 @@
             .archive-actions {
                 align-self: flex-end;
             }
-            
-            /* Mobile-specific scroll container */
+
             .archive-container {
-                max-height: 200px;
+                max-height: 100px;
                 -webkit-overflow-scrolling: touch;
                 overflow-y: scroll;
             }
@@ -737,9 +738,9 @@
                 font-size: 1rem;
                 padding: 10px 14px;
             }
-            
+
             .archive-container {
-                max-height: 180px;
+                max-height: 90px;
             }
         }
 
@@ -749,11 +750,14 @@
             }
         }
 
-        img, .btn, .modal-card {
+        img,
+        .btn,
+        .modal-card {
             max-width: 100%;
         }
     </style>
 </head>
+
 <body>
 
     <div id="particles-js"></div>
@@ -800,26 +804,28 @@
         <div class="modal-card">
             <div class="close-modal" onclick="closeAllModals()">&times;</div>
             <h3><i class="fas fa-rocket"></i> DOWNLOAD</h3>
-            
+
             <div class="latest-release-section">
                 <div class="latest-title">
                     <i class="fas fa-star" style="color: var(--primary-red);"></i> LATEST RELEASE
                 </div>
                 <div class="latest-row">
                     <div class="latest-info">
-                        <h5>🚀 Nexus Bloodstrike v2.0 <span class="latest-badge">NEW</span></h5>
-                        <p>Latest Release • Enhanced Aimbot + Performance Boost + Anti-Ban</p>
+                        <h5>🚀 Nexus Bloodstrike v1.7 <span class="latest-badge">NEW</span></h5>
+                        <p>Latest Release • Fix Crash Issue • Improved Bypass • New Virtual</p>
                     </div>
                     <div class="latest-actions">
-                        <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_2.0.apk" class="latest-btn">Normal</a>
-                        <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_2.0.apk" class="latest-btn">Gyro</a>
+                        <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_2.0.apk"
+                            class="latest-btn">Normal</a>
+                        <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_2.0.apk"
+                            class="latest-btn">Gyro</a>
                     </div>
                 </div>
             </div>
 
             <div class="archive-section">
                 <div class="archive-title">
-                    <i class="fas fa-archive" style="color: var(--primary-red);"></i> Build Archives
+                    <i class="fas fa-archive" style="color: var(--primary-red);"></i> Old Builds
                 </div>
                 <div class="archive-container">
                     <div class="archive-row">
@@ -828,48 +834,10 @@
                             <p>Stable Legacy Release</p>
                         </div>
                         <div class="archive-actions">
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.6.apk" class="archive-btn">Normal</a>
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.6.apk" class="archive-btn">Gyro</a>
-                        </div>
-                    </div>
-                    <div class="archive-row">
-                        <div class="archive-info">
-                            <h5>Build v1.5</h5>
-                            <p>Older Core Engine Build</p>
-                        </div>
-                        <div class="archive-actions">
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.5.apk" class="archive-btn">Normal</a>
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.5.apk" class="archive-btn">Gyro</a>
-                        </div>
-                    </div>
-                    <div class="archive-row">
-                        <div class="archive-info">
-                            <h5>Build v1.4</h5>
-                            <p>Legacy UI Implementation</p>
-                        </div>
-                        <div class="archive-actions">
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.4.apk" class="archive-btn">Normal</a>
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.4.apk" class="archive-btn">Gyro</a>
-                        </div>
-                    </div>
-                    <div class="archive-row">
-                        <div class="archive-info">
-                            <h5>Build v1.3</h5>
-                            <p>Early Access Build</p>
-                        </div>
-                        <div class="archive-actions">
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.3.apk" class="archive-btn">Normal</a>
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.3.apk" class="archive-btn">Gyro</a>
-                        </div>
-                    </div>
-                    <div class="archive-row">
-                        <div class="archive-info">
-                            <h5>Build v1.2</h5>
-                            <p>Initial Public Release</p>
-                        </div>
-                        <div class="archive-actions">
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.2.apk" class="archive-btn">Normal</a>
-                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.2.apk" class="archive-btn">Gyro</a>
+                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.6.apk"
+                                class="archive-btn">Normal</a>
+                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.6.apk"
+                                class="archive-btn">Gyro</a>
                         </div>
                     </div>
                 </div>
@@ -886,36 +854,54 @@
             <div class="tutorial-content max-w-md mx-auto text-left">
                 <div class="space-y-4">
                     <div class="flex items-start gap-3">
-                        <div class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">1</div>
+                        <div
+                            class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
+                            1</div>
                         <div class="text-gray-300">Download the latest Bloodstrike<br>
-                        <a href="https://apkpure.com/project-bloodstrike-app/com.netease.newspike" target="_blank" class="text-red-500 hover:underline break-all">https://apkpure.com/project-bloodstrike-app/com.netease.newspike</a></div>
+                            <a href="https://apkpure.com/project-bloodstrike-app/com.netease.newspike" target="_blank"
+                                class="text-blue-500 hover:underline break-all">https://apkpure.com/project-bloodstrike-app/com.netease.newspike</a>
+                        </div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">2</div>
+                        <div
+                            class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
+                            2</div>
                         <div class="text-gray-300">Install the Bloodstrike app</div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">3</div>
+                        <div
+                            class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
+                            3</div>
                         <div class="text-gray-300">Install my virtual</div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">4</div>
+                        <div
+                            class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
+                            4</div>
                         <div class="text-gray-300">Clone the Bloodstrike</div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">5</div>
+                        <div
+                            class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
+                            5</div>
                         <div class="text-gray-300">Open the cloned Bloodstrike</div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">6</div>
+                        <div
+                            class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
+                            6</div>
                         <div class="text-gray-300">Get key to use my Injector</div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">7</div>
+                        <div
+                            class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
+                            7</div>
                         <div class="text-gray-300">Paste your key</div>
                     </div>
                     <div class="flex items-start gap-3">
-                        <div class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">8</div>
+                        <div
+                            class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
+                            8</div>
                         <div class="text-gray-300">Enjoy but don't abuse and I don't recommend to use aimbot 🥴</div>
                     </div>
                 </div>
@@ -1030,7 +1016,7 @@
         function handleDownloadClick(e) {
             e.preventDefault();
             openModal(downloadModal);
-            closeMobileMenu(); 
+            closeMobileMenu();
         }
         function handleInfoClick(e) {
             e.preventDefault();
@@ -1053,7 +1039,7 @@
         infoMainBtn.addEventListener('click', handleInfoClick);
         navInfoBtn.addEventListener('click', handleInfoClick);
         navContactBtn.addEventListener('click', handleContactClick);
-        if(homeLink) homeLink.addEventListener('click', handleHomeClick);
+        if (homeLink) homeLink.addEventListener('click', handleHomeClick);
 
         const hamburger = document.getElementById('hamburgerIcon');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1119,7 +1105,7 @@
         }, 60000);
 
         if ('ontouchstart' in window) {
-            document.body.addEventListener('touchmove', function(e) {
+            document.body.addEventListener('touchmove', function (e) {
                 if (document.body.classList.contains('menu-open')) {
                     e.preventDefault();
                 }
@@ -1127,4 +1113,5 @@
         }
     </script>
 </body>
+
 </html>
