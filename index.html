@@ -467,26 +467,18 @@
             letter-spacing: 1px;
         }
 
-        /* SCROLLABLE ARCHIVE CONTAINER */
+        /* SCROLLABLE ARCHIVE CONTAINER - NO VISIBLE SCROLLBAR */
         .archive-container {
             max-height: 200px;
             overflow-y: auto;
-            padding-right: 8px;
+            padding-right: 5px;
+            scrollbar-width: none; /* Firefox: hide scrollbar */
+            -ms-overflow-style: none; /* IE/Edge: hide scrollbar */
         }
-
+        
+        /* Chrome/Safari/Opera: hide scrollbar */
         .archive-container::-webkit-scrollbar {
-            width: 6px;
-        }
-        .archive-container::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 10px;
-        }
-        .archive-container::-webkit-scrollbar-thumb {
-            background: var(--primary-red);
-            border-radius: 10px;
-        }
-        .archive-container::-webkit-scrollbar-thumb:hover {
-            background: #ff3366;
+            display: none;
         }
 
         .archive-row {
@@ -785,7 +777,7 @@
 
             <div class="archive-section">
                 <div class="archive-title">
-                    <i class="fas fa-archive" style="color: var(--primary-red);"></i> Build Archives <span class="text-xs text-gray-400 ml-2">(scrollable)</span>
+                    <i class="fas fa-archive" style="color: var(--primary-red);"></i> Build Archives
                 </div>
                 <div class="archive-container">
                     <div class="archive-row">
