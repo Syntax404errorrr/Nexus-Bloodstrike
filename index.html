@@ -333,6 +333,7 @@
             opacity: 0;
             transition: visibility 0.2s, opacity 0.2s;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .modal-page.active {
@@ -351,6 +352,17 @@
             text-align: center;
             box-shadow: 0 0 40px rgba(255, 0, 60, 0.2);
             margin: 20px;
+            max-height: 90vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .modal-card::-webkit-scrollbar {
+            display: none;
+        }
+        .modal-card {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
         .modal-card h3 {
@@ -467,18 +479,25 @@
             letter-spacing: 1px;
         }
 
-        /* SCROLLABLE ARCHIVE CONTAINER - NO VISIBLE SCROLLBAR */
+        /* SCROLLABLE ARCHIVE CONTAINER - MOBILE FRIENDLY, NO VISIBLE SCROLLBAR */
         .archive-container {
-            max-height: 200px;
+            max-height: 240px;
             overflow-y: auto;
+            overflow-x: hidden;
             padding-right: 5px;
-            scrollbar-width: none; /* Firefox: hide scrollbar */
-            -ms-overflow-style: none; /* IE/Edge: hide scrollbar */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
         
-        /* Chrome/Safari/Opera: hide scrollbar */
         .archive-container::-webkit-scrollbar {
             display: none;
+        }
+
+        /* Ensure touch scrolling works on all devices */
+        .archive-wrapper {
+            display: block;
+            width: 100%;
         }
 
         .archive-row {
@@ -608,6 +627,7 @@
             font-weight: 500;
         }
 
+        /* Mobile & Tablet Optimizations */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -633,6 +653,7 @@
             .modal-card {
                 padding: 30px 20px;
                 max-width: 95%;
+                max-height: 85vh;
             }
 
             .modal-card h3 {
@@ -674,6 +695,11 @@
             .archive-actions {
                 align-self: flex-end;
             }
+            
+            .archive-container {
+                max-height: 200px;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
         @media (max-width: 480px) {
@@ -698,6 +724,10 @@
             .mobile-menu ul li a {
                 font-size: 1rem;
                 padding: 10px 14px;
+            }
+            
+            .archive-container {
+                max-height: 180px;
             }
         }
 
