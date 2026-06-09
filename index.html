@@ -485,9 +485,9 @@
             letter-spacing: 1px;
         }
 
-        /* FIX: SCROLLABLE ARCHIVE CONTAINER FOR TOUCH DEVICES - now matches latest release spacing */
+        /* ADJUSTED: Taller archive container with better spacing - preserved all original styling */
         .archive-container {
-            max-height: 140px;
+            max-height: 200px;
             overflow-y: auto;
             overflow-x: hidden;
             padding-right: 8px;
@@ -497,6 +497,9 @@
             touch-action: pan-y pinch-zoom;
             position: relative;
             margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .archive-container:active {
@@ -518,13 +521,12 @@
             border-radius: 10px;
         }
 
-        /* Ensure content inside container doesn't block scroll */
+        /* ADJUSTED: Slightly larger padding, removed margin-bottom (gap handles spacing) */
         .archive-row {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            padding: 12px 16px;
-            margin-bottom: 10px;
+            padding: 14px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -715,9 +717,9 @@
                 align-self: flex-end;
             }
 
-            /* FIXED: archive container better touch scroll on mobile */
+            /* ADJUSTED: Taller archive container on mobile for better visibility */
             .archive-container {
-                max-height: 130px;
+                max-height: 170px;
                 -webkit-overflow-scrolling: touch;
                 overflow-y: scroll;
                 touch-action: pan-y;
@@ -748,8 +750,9 @@
                 padding: 10px 14px;
             }
 
+            /* ADJUSTED: Slightly taller on small phones */
             .archive-container {
-                max-height: 110px;
+                max-height: 160px;
             }
         }
 
