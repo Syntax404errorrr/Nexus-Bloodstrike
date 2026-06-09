@@ -467,22 +467,26 @@
             letter-spacing: 1px;
         }
 
+        /* SCROLLABLE ARCHIVE CONTAINER */
         .archive-container {
-            max-height: 180px;
+            max-height: 200px;
             overflow-y: auto;
-            padding-right: 5px;
+            padding-right: 8px;
         }
 
         .archive-container::-webkit-scrollbar {
-            width: 5px;
+            width: 6px;
         }
         .archive-container::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
         }
         .archive-container::-webkit-scrollbar-thumb {
             background: var(--primary-red);
             border-radius: 10px;
+        }
+        .archive-container::-webkit-scrollbar-thumb:hover {
+            background: #ff3366;
         }
 
         .archive-row {
@@ -781,7 +785,7 @@
 
             <div class="archive-section">
                 <div class="archive-title">
-                    <i class="fas fa-archive" style="color: var(--primary-red);"></i> Build Archives
+                    <i class="fas fa-archive" style="color: var(--primary-red);"></i> Build Archives <span class="text-xs text-gray-400 ml-2">(scrollable)</span>
                 </div>
                 <div class="archive-container">
                     <div class="archive-row">
@@ -812,6 +816,26 @@
                         <div class="archive-actions">
                             <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.4.apk" class="archive-btn">Normal</a>
                             <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.4.apk" class="archive-btn">Gyro</a>
+                        </div>
+                    </div>
+                    <div class="archive-row">
+                        <div class="archive-info">
+                            <h5>Build v1.3</h5>
+                            <p>Early Access Build</p>
+                        </div>
+                        <div class="archive-actions">
+                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.3.apk" class="archive-btn">Normal</a>
+                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.3.apk" class="archive-btn">Gyro</a>
+                        </div>
+                    </div>
+                    <div class="archive-row">
+                        <div class="archive-info">
+                            <h5>Build v1.2</h5>
+                            <p>Initial Public Release</p>
+                        </div>
+                        <div class="archive-actions">
+                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.2.apk" class="archive-btn">Normal</a>
+                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.2.apk" class="archive-btn">Gyro</a>
                         </div>
                     </div>
                 </div>
