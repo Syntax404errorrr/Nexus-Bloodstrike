@@ -828,13 +828,13 @@
                 </div>
                 <div class="latest-row">
                     <div class="latest-info">
-                        <h5>Nexus Bloodstrike v1.7 <span class="latest-badge">NEW</span></h5>
-                        <p>New Virtual • Fix Crash Issue • Improved Bypass</p>
+                        <h5>Nexus Bloodstrike v1.8 <span class="latest-badge">NEW</span></h5>
+                        <p>Stable • Skin in All Guns • Auto Update</p>
                     </div>
                     <div class="latest-actions">
-                        <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.7.apk"
+                        <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.8.apk"
                             class="latest-btn">Normal</a>
-                        <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.7.apk"
+                        <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.8.apk"
                             class="latest-btn">Gyro</a>
                     </div>
                 </div>
@@ -845,6 +845,18 @@
                     <i class="fas fa-archive" style="color: var(--primary-red);"></i> Old Builds
                 </div>
                 <div class="archive-container" id="archiveContainer">
+                    <div class="archive-row">
+                        <div class="archive-info">
+                            <h5>📦 Build v1.7</h5>
+                            <p>New Virtual • Fix Crash Issue • Improved Bypass</p>
+                        </div>
+                        <div class="archive-actions">
+                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20NORMAL%20AIM_1.7.apk"
+                                class="archive-btn">Normal</a>
+                            <a href="https://raw.githubusercontent.com/Syntax404errorrr/Nexus-Bloodstrike/main/download/NEXUS%20BLOODSTRIKE%20GYRO%20AIM_1.7.apk"
+                                class="archive-btn">Gyro</a>
+                        </div>
+                    </div>
                     <div class="archive-row">
                         <div class="archive-info">
                             <h5>📦 Build v1.6</h5>
@@ -919,12 +931,14 @@
                         <div
                             class="bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold font-orbitron flex-shrink-0 mt-0.5">
                             8</div>
-                        <div class="text-gray-300">Enjoy but don't abuse and I don't recommend to use aimbot 🥴</div>
+                        <div class="text-gray-300">Enjoy but don't abuse and I don't recommend to use aimbot 🥴
+                        </div>
                     </div>
                 </div>
                 <div class="mt-5 p-3 bg-red-900/20 border-l-3 border-red-600 rounded-lg">
                     <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
-                    <span class="text-yellow-400 text-sm">Warning: Use at your own risk. Play like a normal player</span>
+                    <span class="text-yellow-400 text-sm">Warning: Use at your own risk. Play like a normal
+                        player</span>
                 </div>
             </div>
         </div>
@@ -1131,10 +1145,10 @@
 
         const archiveContainer = document.getElementById('archiveContainer');
         if (archiveContainer) {
-            archiveContainer.addEventListener('touchstart', function(e) {
+            archiveContainer.addEventListener('touchstart', function (e) {
                 e.stopPropagation();
             }, { passive: false });
-            archiveContainer.addEventListener('touchmove', function(e) {
+            archiveContainer.addEventListener('touchmove', function (e) {
                 let container = e.currentTarget;
                 let scrollTop = container.scrollTop;
                 let scrollHeight = container.scrollHeight;
