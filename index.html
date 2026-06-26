@@ -1024,7 +1024,7 @@
                     }
                 } catch (err) {
                     console.warn("Using fallback version due to fetch error:", err);
-                    versionElement.innerText = "FILE VERSION: 1.7 [LATEST]";
+                    versionElement.innerText = "FILE VERSION: 1.8.1 [LATEST]";
                 }
             }
         }
@@ -1134,7 +1134,7 @@
                     if (part.match(/^[0-9]+\.[0-9]+\.[0-9]+/)) return part;
                 }
             }
-            return "1.7";
+            return "1.8.1";
         }
 
         window.showDownload = function () { openModal(downloadModal); };
