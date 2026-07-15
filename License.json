@@ -1,0 +1,14 @@
+[
+  {
+    "Developer": "Nexus",
+    "key": "NEXUSBLOODSTRIKE",
+    "expiresAt": "2026-07-05",
+    "allowOffline": false
+  },
+  {
+    "Developer": "Nexus",
+    "key": "123",
+    "expiresAt": "2025-06-15",
+    "allowOffline": false
+  }
+]
